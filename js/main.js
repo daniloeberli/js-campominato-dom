@@ -64,6 +64,7 @@ function campoMinato(){
 }
 
 function bombCreate(cellNumber){
+    
     while(bomb.length < 16){
         const randomNum = Math.floor(Math.random() * (cellNumber - 1) ) + 1;
         if(!bomb.includes(randomNum)){
