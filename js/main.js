@@ -1,5 +1,9 @@
 "use strict";
 
+/*
+FUNCTION
+*/
+
 function resetGame(){
     console.log('reset game');
     const boardContainer = document.querySelector('.board');
@@ -59,12 +63,27 @@ function campoMinato(){
     boardContainer.append(fragmentBoard);
 }
 
+function bombCreate(cellNumber){
+    while(bomb.length < 16){
+        const randomNum = Math.floor(Math.random() * (cellNumber - 1) ) + 1;
+        if(!bomb.includes(randomNum)){
+            bomb.push(randomNum);
+        }
+    }
+
+    console.log(bomb);
+}
+
 /*
 MAIN
 */
 
 const startButton = document.getElementById('game-start');
 const resetButton = document.getElementById('game-reset');
+
+let bomb = [];
+
+bombCreate(49);
 
 startButton.addEventListener('click', campoMinato);
 resetButton.addEventListener('click', resetGame);

@@ -26,22 +26,6 @@ header img {
     max-width: 3.125rem;
 }
 
-.header-left{
-    display: flex;
-    align-items: center;
-}
-
-.header-right{
-    padding: 5px 25px;
-    background-color: #e9e9ed;
-    border-radius: 10px;
-}
-
-
-.header-right:hover{
-    cursor: pointer;
-}
-
 header,footer{
     padding: 1.25rem;
 }
