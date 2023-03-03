@@ -10,6 +10,7 @@ function resetGame(){
     boardContainer.innerHTML = '';
     bomb = [];
     scoreBoard.innerHTML = 0;
+    table.style.pointerEvents = `auto`;
 }
 
 function createBoard(cellNumber){
@@ -19,7 +20,6 @@ function createBoard(cellNumber){
     for(let i = 1; i<= cellNumber; i++){
         //console.log(i);
         const element = document.createElement('div');
-        const table = document.getElementById('table');
         element.classList.add('cell');
         element.style.width = `calc(100% / ${Math.sqrt(cellNumber)})`;
         element.style.height = element.style.width;
@@ -108,6 +108,7 @@ MAIN
 
 const startButton = document.getElementById('game-start');
 const resetButton = document.getElementById('game-reset');
+const table = document.getElementById('table');
 
 let bomb = [];
 let score = 0;
