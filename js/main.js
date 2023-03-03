@@ -63,28 +63,43 @@ function campoMinato(){
     boardContainer.append(fragmentBoard);
 }
 
-function bombCreate(cellNumber){
-    
+function bombCreate(){
+
+    let difficulty = document.getElementById('level').value;
+    let max;
+
+    if(difficulty === '1'){
+        max = 100;
+    }else if(difficulty ==='2'){
+        max = 81;
+    }else{
+        max = 49;
+    }
+
     while(bomb.length < 16){
-        const randomNum = Math.floor(Math.random() * (cellNumber - 1) ) + 1;
+        const randomNum = Math.floor(Math.random() * (max - 1) ) + 1;
         if(!bomb.includes(randomNum)){
             bomb.push(randomNum);
         }
     }
 
     console.log(bomb);
+    return bomb;
 }
 
 /*
 MAIN
 */
 
+//let cellNumber;
+
 const startButton = document.getElementById('game-start');
 const resetButton = document.getElementById('game-reset');
 
 let bomb = [];
 
-bombCreate(49);
+//bombCreate();
 
 startButton.addEventListener('click', campoMinato);
+startButton.addEventListener('click',bombCreate)
 resetButton.addEventListener('click', resetGame);
