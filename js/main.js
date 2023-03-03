@@ -5,14 +5,14 @@ FUNCTION
 */
 
 function resetGame(){
-    console.log('reset game');
+    
     const boardContainer = document.querySelector('.board');
     boardContainer.innerHTML = '';
+    bomb = [];
 }
 
 function createBoard(cellNumber){
     
-    console.log('create');
     let fragmentBoard = document.createDocumentFragment();
 
     for(let i = 1; i<= cellNumber; i++){
@@ -23,9 +23,22 @@ function createBoard(cellNumber){
         element.style.height = element.style.width;
 
         element.addEventListener('click', function(){
-            element.classList.add('change');
-            console.log(i);
-            alert(i);
+
+            if(bomb.includes(i)){
+                element.classList.add('lose');
+                element.style.pointerEvents = `none`;
+                console.log('perso');
+            }else{
+                element.classList.add('change');
+                element.style.pointerEvents = `none`;
+                score++;
+            }
+
+            
+
+            
+            console.log(score);
+           // alert(i);
         })
 
         element.innerText = i;
@@ -36,7 +49,7 @@ function createBoard(cellNumber){
 }
 
 function campoMinato(){
-    console.log('inizia il gioco');
+    
     const boardContainer = document.querySelector('.board');
     resetGame();
 
@@ -91,15 +104,16 @@ function bombCreate(){
 MAIN
 */
 
-//let cellNumber;
 
 const startButton = document.getElementById('game-start');
 const resetButton = document.getElementById('game-reset');
 
 let bomb = [];
+let score = 0;
+let scoreBoard = document.getElementById("score").innerHTML;
 
-//bombCreate();
 
 startButton.addEventListener('click', campoMinato);
 startButton.addEventListener('click',bombCreate)
 resetButton.addEventListener('click', resetGame);
+

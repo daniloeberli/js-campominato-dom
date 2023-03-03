@@ -62,3 +62,7 @@ main{
 .cell:hover{
     cursor: pointer;
 }
+
+.lose{
+    background-color: red;
+}
