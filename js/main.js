@@ -23,7 +23,7 @@ function createBoard(cellNumber){
         element.style.height = element.style.width;
 
         element.addEventListener('click', function(){
-
+            //controllo se il numero della casella fa parte delle bombe
             if(bomb.includes(i)){
                 element.classList.add('lose');
                 element.style.pointerEvents = `none`;
@@ -33,10 +33,6 @@ function createBoard(cellNumber){
                 element.style.pointerEvents = `none`;
                 score++;
             }
-
-            
-
-            
             console.log(score);
            // alert(i);
         })
@@ -80,7 +76,8 @@ function bombCreate(){
 
     let difficulty = document.getElementById('level').value;
     let max;
-
+    
+    // a seconda della difficoltà selezioniamo il numero massimo 
     if(difficulty === '1'){
         max = 100;
     }else if(difficulty ==='2'){
@@ -88,7 +85,7 @@ function bombCreate(){
     }else{
         max = 49;
     }
-
+    //creiamo l'array di 16 numeri casuali non duplicati
     while(bomb.length < 16){
         const randomNum = Math.floor(Math.random() * (max - 1) ) + 1;
         if(!bomb.includes(randomNum)){
