@@ -9,6 +9,7 @@ function resetGame(){
     const boardContainer = document.querySelector('.board');
     boardContainer.innerHTML = '';
     bomb = [];
+    scoreBoard.innerHTML = 0;
 }
 
 function createBoard(cellNumber){
