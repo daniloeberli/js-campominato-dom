@@ -18,6 +18,7 @@ function createBoard(cellNumber){
     for(let i = 1; i<= cellNumber; i++){
         //console.log(i);
         const element = document.createElement('div');
+        const table = document.getElementById('table');
         element.classList.add('cell');
         element.style.width = `calc(100% / ${Math.sqrt(cellNumber)})`;
         element.style.height = element.style.width;
@@ -27,11 +28,13 @@ function createBoard(cellNumber){
             if(bomb.includes(i)){
                 element.classList.add('lose');
                 element.style.pointerEvents = `none`;
+                table.style.pointerEvents = `none`;
                 console.log('perso');
             }else{
                 element.classList.add('change');
                 element.style.pointerEvents = `none`;
                 score++;
+                scoreBoard.innerHTML = score;
             }
             console.log(score);
            // alert(i);
@@ -107,7 +110,7 @@ const resetButton = document.getElementById('game-reset');
 
 let bomb = [];
 let score = 0;
-let scoreBoard = document.getElementById("score").innerHTML;
+let scoreBoard = document.getElementById("score");
 
 
 startButton.addEventListener('click', campoMinato);
