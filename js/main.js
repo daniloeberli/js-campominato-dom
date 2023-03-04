@@ -24,19 +24,24 @@ function createBoard(cellNumber){
         element.classList.add('cell');
         element.style.width = `calc(100% / ${Math.sqrt(cellNumber)})`;
         element.style.height = element.style.width;
+        
 
         element.addEventListener('click', function(){
             //controllo se il numero della casella fa parte delle bombe
             if(bomb.includes(i)){
                 element.classList.add('lose');
-                element.style.pointerEvents = `none`;
+                //element.style.pointerEvents = `none`;
                 table.style.pointerEvents = `none`;
+                scoreBoard.innerHTML = 'GAME OVER!! Punteggio finale: '+ score;
                 console.log('perso');
             }else{
                 element.classList.add('change');
                 element.style.pointerEvents = `none`;
                 score++;
                 scoreBoard.innerHTML = score;
+                if(score === cellNumber - bomb.length){
+                    scoreBoard.innerHTML = 'Complimenti hai vinto. Punteggio finale: '+ score;
+                }
             }
             console.log(score);
            // alert(i);
@@ -101,6 +106,8 @@ function bombCreate(){
     console.log(bomb);
     return bomb;
 }
+
+
 
 /*
 MAIN
