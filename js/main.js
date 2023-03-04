@@ -9,6 +9,7 @@ function resetGame(){
     const boardContainer = document.querySelector('.board');
     boardContainer.innerHTML = '';
     bomb = [];
+    score = 0;
     scoreBoard.innerHTML = 0;
     table.style.pointerEvents = `auto`;
 }

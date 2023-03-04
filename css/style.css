@@ -8,6 +8,7 @@ body{
     height: 100vh;
     display: flex;
     flex-direction: column;
+    font-family: 'Golos Text', sans-serif;
 }
 
 header{
@@ -22,8 +23,27 @@ header span {
     font-weight: 800;
 }
 
+header button{
+    padding: 5px 30px;
+    border-radius: 30px;
+}
+
+header button:hover{
+    cursor: pointer;
+}
+
+header select{
+    padding: 5px 20px;
+    border-radius: 10px;
+}
+
+header select:hover{
+    cursor: pointer;
+}
+
 header img {
     max-width: 3.125rem;
+    vertical-align: bottom;
 }
 
 header,footer{
